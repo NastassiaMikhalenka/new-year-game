@@ -13,6 +13,7 @@ import pic11 from './assets/pic11.png';
 
 
 import find from './assets/find.png';
+import {ModalWindow} from "./components/ModalWindow";
 
 type initialItemType = {
     id: number
@@ -115,6 +116,23 @@ function App() {
         setOpenedCards([])
         setMatched([])
     }
+
+    if (matched.length === 6 && valueSelect === "Easy") {
+        return (
+            <ModalWindow onClickRestart={onClickRestart}/>
+        )
+    }
+    if (matched.length === 8 && valueSelect === "Middle") {
+        return (
+            <ModalWindow onClickRestart={onClickRestart}/>
+        )
+    }
+    if (matched.length === 10 && valueSelect === "Hard") {
+        return (
+            <ModalWindow onClickRestart={onClickRestart}/>
+        )
+    }
+
     return (
         <div className={"appContainer"}>
             <select value={valueSelect}
