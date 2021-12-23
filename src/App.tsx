@@ -40,6 +40,9 @@ function App() {
     const [openedCards, setOpenedCards] = useState<Array<number>>([])
     const [matched, setMatched] = useState<Array<number>>([])
     const [valueSelect, setValueSelect] = useState<string>("Hard")
+    const [move, setMove] = useState<number>(0)
+    const [modalWindow, setModalWindow] = useState(false)
+
 
     const shuffle = (array: any) => {
         let currentIndex = array.length, temporaryValue, randomIndex;
@@ -61,6 +64,8 @@ function App() {
 
     const onClickHandler = (index: number) => {
         setOpenedCards([...openedCards, index])
+        let newMove = move + 1
+        setMove(newMove)
     }
 
     useEffect(() => {
@@ -110,38 +115,45 @@ function App() {
         setCards(shuffle(doubleArray));
         setOpenedCards([])
         setMatched([])
+        setMove(0)
     }
 
     const onClickRestart = () => {
         setOpenedCards([])
         setMatched([])
+        setMove(0)
     }
 
-    if (matched.length === 6 && valueSelect === "Easy") {
-        return (
-            <ModalWindow onClickRestart={onClickRestart}/>
-        )
-    }
-    if (matched.length === 8 && valueSelect === "Middle") {
-        return (
-            <ModalWindow onClickRestart={onClickRestart}/>
-        )
-    }
-    if (matched.length === 10 && valueSelect === "Hard") {
-        return (
-            <ModalWindow onClickRestart={onClickRestart}/>
-        )
+    useEffect(() => {
+        if (matched.length === 6 && valueSelect === "Easy") {
+            setModalWindow(true)
+        }
+        if (matched.length === 8 && valueSelect === "Middle") {
+            setModalWindow(true)
+        }
+        if (matched.length === 10 && valueSelect === "Hard") {
+            setModalWindow(true)
+        }
+    })
+
+    const onClickModal = () => {
+        onClickRestart()
+        setModalWindow(false)
     }
 
     return (
         <div className={"appContainer"}>
-            <select value={valueSelect}
-                    onChange={onChange}>
-                <option disabled={true}>Level</option>
-                <option value={"Easy"} id={"1"}>Easy</option>
-                <option value={"Middle"} id={"2"}>Middle</option>
-                <option value={"Hard"} id={"3"} selected>Hard</option>
-            </select>
+            <div className={"header"}>
+                <select className={"select"}
+                    value={valueSelect}
+                        onChange={onChange}>
+                    <option disabled={true}>Level</option>
+                    <option value={"Easy"} id={"1"}>Easy</option>
+                    <option value={"Middle"} id={"2"}>Middle</option>
+                    <option value={"Hard"} id={"3"} selected>Hard</option>
+                </select>
+                <p className={"points"}>Points: {move}</p>
+            </div>
             <div className={classNameHard}>
                 {cards.map((m, index) => {
                     let isFlipped = false
@@ -166,7 +178,8 @@ function App() {
                     )
                 })}
             </div>
-            <button onClick={onClickRestart}>Restart</button>
+            <button className={"btnRestart"} onClick={onClickRestart}>Restart</button>
+            <ModalWindow onClickModal={onClickModal} modalWindow={modalWindow}/>
         </div>
     );
 }
