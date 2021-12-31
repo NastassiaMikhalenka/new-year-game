@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/new-year-game/static/css/main.bab58d6e.css",
+    "main.js": "/new-year-game/static/js/main.770136ba.js",
+    "static/js/787.868daf01.chunk.js": "/new-year-game/static/js/787.868daf01.chunk.js",
+    "static/media/find.png": "/new-year-game/static/media/find.7d38b9e1c9f43743feca.png",
+    "static/media/pic8.png": "/new-year-game/static/media/pic8.6991183484083463dd06.png",
+    "static/media/pic1.png": "/new-year-game/static/media/pic1.0cb383e816ce2dd4a68f.png",
+    "static/media/pic11.png": "/new-year-game/static/media/pic11.9bb864e07f6517c7b092.png",
+    "static/media/pic2.png": "/new-year-game/static/media/pic2.208508e0eff345701e1a.png",
+    "static/media/pic7.png": "/new-year-game/static/media/pic7.32b0b3f69e21e898182e.png",
+    "static/media/pic6.png": "/new-year-game/static/media/pic6.ba1f687493fed4260de9.png",
+    "static/media/pic10.png": "/new-year-game/static/media/pic10.896c9d11e05eff781a73.png",
+    "static/media/pic5.png": "/new-year-game/static/media/pic5.72f29c82f7e4894a827b.png",
+    "static/media/pic3.png": "/new-year-game/static/media/pic3.50a4dd403d1b25acbf84.png",
+    "static/media/pic4.png": "/new-year-game/static/media/pic4.a1a93824c5fb15cf9a63.png",
+    "index.html": "/new-year-game/index.html",
+    "main.bab58d6e.css.map": "/new-year-game/static/css/main.bab58d6e.css.map",
+    "main.770136ba.js.map": "/new-year-game/static/js/main.770136ba.js.map",
+    "787.868daf01.chunk.js.map": "/new-year-game/static/js/787.868daf01.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bab58d6e.css",
+    "static/js/main.770136ba.js"
+  ]
+}
